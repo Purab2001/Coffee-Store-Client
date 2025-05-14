@@ -64,7 +64,7 @@ const CoffeeCard = ({ coffee, setCoffees, coffees }) => {
                 </div>
             </div>
 
-            <div className='flex flex-col gap-2'>
+            <div className='flex md:flex-col gap-2'>
                 <Link to={`/coffee/${_id}`} className='p-2 bg-[#D2B48C] text-white rounded cursor-pointer hover:bg-[#C19A6B] transition-colors duration-300 transform hover:scale-105 inline-flex items-center justify-center'>
                     <BsEye className='text-lg' />
                 </Link>

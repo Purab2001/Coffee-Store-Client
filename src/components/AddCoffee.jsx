@@ -132,6 +132,7 @@ const AddCoffee = () => {
                         <button
                             type="submit"
                             className="w-full mt-8 py-3 bg-[#D2B48C] text-[#331A15] rancho text-xl border-2 border-[#331A15] rounded-md hover:bg-[#C19A6B] cursor-pointer"
+                            style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.3)' }}
                         >
                             Add Coffee
                         </button>
