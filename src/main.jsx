@@ -18,7 +18,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        loader: () => fetch('http://localhost:3000/coffees'),
+        loader: () => fetch('https://coffee-store-server-3443.onrender.com/coffees'),
         Component: Home,
       },
       {
@@ -28,11 +28,11 @@ const router = createBrowserRouter([
       {
         path: "coffee/:id",
         Component: CoffeeDetails,
-        loader: ({ params }) => fetch(`http://localhost:3000/coffees/${params.id}`),
+        loader: ({ params }) => fetch(`https://coffee-store-server-3443.onrender.com/coffees/${params.id}`),
       },
       {
         path: "update-coffee/:id",
-        loader: ({ params }) => fetch(`http://localhost:3000/coffees/${params.id}`),
+        loader: ({ params }) => fetch(`https://coffee-store-server-3443.onrender.com/coffees/${params.id}`),
         Component: UpdateCoffee,
       },
     ]
