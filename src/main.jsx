@@ -10,6 +10,7 @@ import Home from './components/Home.jsx';
 import AddCoffee from './components/AddCoffee.jsx';
 import UpdateCoffee from './components/UpdateCoffee.jsx';
 import CoffeeDetails from './components/CoffeeDetails.jsx';
+import LoadingSpinner from './components/LoadingSpinner.jsx';
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,7 @@ const router = createBrowserRouter([
       {
         index: true,
         loader: () => fetch('https://coffee-store-server-3443.onrender.com/coffees'),
+        hydrateFallbackElement: <LoadingSpinner />,
         Component: Home,
       },
       {
@@ -29,10 +31,12 @@ const router = createBrowserRouter([
         path: "coffee/:id",
         Component: CoffeeDetails,
         loader: ({ params }) => fetch(`https://coffee-store-server-3443.onrender.com/coffees/${params.id}`),
+        hydrateFallbackElement: <LoadingSpinner />,
       },
       {
         path: "update-coffee/:id",
         loader: ({ params }) => fetch(`https://coffee-store-server-3443.onrender.com/coffees/${params.id}`),
+        hydrateFallbackElement: <LoadingSpinner />,
         Component: UpdateCoffee,
       },
     ]
