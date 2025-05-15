@@ -1,10 +1,11 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import './index.css';
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router";
+// Layouts and Components
 import MainLayout from './layouts/MainLayout.jsx';
 import Home from './components/Home.jsx';
 import AddCoffee from './components/AddCoffee.jsx';
@@ -19,7 +20,8 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        loader: () => fetch('https://coffee-store-server-3443.onrender.com/coffees'),
+        loader: () =>
+          fetch('https://coffee-store-server-3443.onrender.com/coffees'),
         hydrateFallbackElement: <LoadingSpinner />,
         Component: Home,
       },
@@ -30,21 +32,23 @@ const router = createBrowserRouter([
       {
         path: "coffee/:id",
         Component: CoffeeDetails,
-        loader: ({ params }) => fetch(`https://coffee-store-server-3443.onrender.com/coffees/${params.id}`),
+        loader: ({ params }) =>
+          fetch(`https://coffee-store-server-3443.onrender.com/coffees/${params.id}`),
         hydrateFallbackElement: <LoadingSpinner />,
       },
       {
         path: "update-coffee/:id",
-        loader: ({ params }) => fetch(`https://coffee-store-server-3443.onrender.com/coffees/${params.id}`),
+        loader: ({ params }) =>
+          fetch(`https://coffee-store-server-3443.onrender.com/coffees/${params.id}`),
         hydrateFallbackElement: <LoadingSpinner />,
         Component: UpdateCoffee,
       },
-    ]
+    ],
   },
 ]);
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <RouterProvider router={router} />
-  </StrictMode>,
-)
+  </StrictMode>
+);
