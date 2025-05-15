@@ -2,21 +2,24 @@ import React from 'react';
 import { useLoaderData } from 'react-router';
 import { Link } from 'react-router';
 import { FaArrowLeft } from 'react-icons/fa';
+import { BsPencilSquare } from 'react-icons/bs';
 
 const CoffeeDetails = () => {
     const coffee = useLoaderData();
-    const { name, photo, supplier, price, category, details, quantity } = coffee;
+    const { _id, name, photo, supplier, price, category, details, quantity } = coffee;
 
     return (
         <div className='container mx-auto my-12 px-4'>
-            <Link
-                to="/"
-                className='inline-flex items-center gap-2 rancho text-xl text-[#374151] mb-8 hover:text-[#D2B48C] transition-all duration-300 transform hover:translate-x-[-5px] group'
-                style={{ textShadow: '1px 1px 2px rgba(0, 0, 0, 0.2)' }}
-            >
-                <FaArrowLeft className="transition-transform duration-300 group-hover:transform group-hover:translate-x-[-3px]" />
-                Back to home
-            </Link>
+            <div className="flex justify-between items-center mb-8">
+                <Link
+                    to="/"
+                    className='inline-flex items-center gap-2 rancho text-xl text-[#374151] hover:text-[#D2B48C] transition-all duration-300 transform hover:translate-x-[-5px] group'
+                    style={{ textShadow: '1px 1px 2px rgba(0, 0, 0, 0.2)' }}
+                >
+                    <FaArrowLeft className="transition-transform duration-300 group-hover:transform group-hover:translate-x-[-3px]" />
+                    Back to home
+                </Link>
+            </div>
 
             <div className='bg-[#F8F8F8] p-8 rounded-lg'>
                 <div className='flex flex-col md:flex-row gap-8 items-center md:items-start'>
@@ -29,7 +32,16 @@ const CoffeeDetails = () => {
                     </div>
 
                     <div className='w-full md:w-2/3'>
-                        <h2 className='rancho text-3xl text-[#331A15] mb-6' style={{ textShadow: '1px 1px 2px rgba(0, 0, 0, 0.2)' }}>Niceties</h2>
+                        <div className="flex justify-between items-center mb-6">
+                            <h2 className='rancho text-3xl text-[#331A15]' style={{ textShadow: '1px 1px 2px rgba(0, 0, 0, 0.2)' }}>Niceties</h2>
+
+                            <Link
+                                to={`/update-coffee/${_id}`}
+                                className='p-2 bg-[#3C393B] text-white rounded cursor-pointer hover:bg-[#2A2729] transition-colors duration-300 transform hover:scale-105 inline-flex items-center justify-center'
+                            >
+                                <BsPencilSquare className='text-lg' />
+                            </Link>
+                        </div>
 
                         <div className='space-y-4'>
                             <p className='flex gap-2'>
@@ -64,15 +76,6 @@ const CoffeeDetails = () => {
                                 <span className='font-medium text-[#331A15] min-w-[80px]'>Details:</span>
                                 <span className='text-gray-700'>{details}</span>
                             </p>
-                        </div>
-
-                        <div className="mt-8 flex justify-end">
-                            <Link
-                                to={`/update-coffee/${coffee._id}`}
-                                className='inline-flex items-center gap-2 bg-[#D2B48C] hover:bg-[#C19A6B] text-[#331A15] rancho text-xl px-5 py-2 rounded border-2 border-[#331A15] transition-colors duration-300'
-                            >
-                                Edit Coffee Details
-                            </Link>
                         </div>
                     </div>
                 </div>

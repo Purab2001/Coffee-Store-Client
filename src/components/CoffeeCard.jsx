@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { BsEye, BsPencilSquare, BsTrash } from 'react-icons/bs';
 import { Link } from 'react-router';
 import Swal from 'sweetalert2';
+import { AuthContext } from '../contexts/AuthContext';
 
 const CoffeeCard = ({ coffee, setCoffees, coffees }) => {
     const { _id, name, photo, supplier, price } = coffee;
+    const { user } = useContext(AuthContext);
 
     const handleDelete = (_id) => {
         console.log(_id);
@@ -64,23 +66,25 @@ const CoffeeCard = ({ coffee, setCoffees, coffees }) => {
                 </div>
             </div>
 
-            <div className='flex md:flex-col gap-2'>
-                <Link to={`/coffee/${_id}`} className='p-2 bg-[#D2B48C] text-white rounded cursor-pointer hover:bg-[#C19A6B] transition-colors duration-300 transform hover:scale-105 inline-flex items-center justify-center'>
-                    <BsEye className='text-lg' />
-                </Link>
-                <Link
-                    to={`/update-coffee/${_id}`}
-                    className='p-2 bg-[#3C393B] text-white rounded cursor-pointer hover:bg-[#2A2729] transition-colors duration-300 transform hover:scale-105 inline-flex items-center justify-center'
-                >
-                    <BsPencilSquare className='text-lg' />
-                </Link>
-                <button
-                    onClick={() => handleDelete(_id)}
-                    className='p-2 bg-[#EA4744] text-white rounded cursor-pointer hover:bg-[#d43832] transition-colors duration-300 transform hover:scale-105'
-                >
-                    <BsTrash className='text-lg' />
-                </button>
-            </div>
+            {user && (
+                <div className='flex md:flex-col gap-2'>
+                    <Link to={`/coffee/${_id}`} className='p-2 bg-[#D2B48C] text-white rounded cursor-pointer hover:bg-[#C19A6B] transition-colors duration-300 transform hover:scale-105 inline-flex items-center justify-center'>
+                        <BsEye className='text-lg' />
+                    </Link>
+                    <Link
+                        to={`/update-coffee/${_id}`}
+                        className='p-2 bg-[#3C393B] text-white rounded cursor-pointer hover:bg-[#2A2729] transition-colors duration-300 transform hover:scale-105 inline-flex items-center justify-center'
+                    >
+                        <BsPencilSquare className='text-lg' />
+                    </Link>
+                    <button
+                        onClick={() => handleDelete(_id)}
+                        className='p-2 bg-[#EA4744] text-white rounded cursor-pointer hover:bg-[#d43832] transition-colors duration-300 transform hover:scale-105'
+                    >
+                        <BsTrash className='text-lg' />
+                    </button>
+                </div>
+            )}
         </div>
     );
 };

@@ -12,10 +12,10 @@ const MainLayout = () => {
 
     return (
         <div>
-            <Navbar />
+            {location.pathname !== '/sign-in' && location.pathname !== '/sign-up' && <Navbar />}
             {show && <Header />}
             <div
-                className='container mx-auto px-4 md:px-12 bg-center bg-no-repeat min-h-screen'
+                className='px-4 md:px-12 bg-center bg-no-repeat min-h-screen'
                 style={{
                     backgroundImage: `url(${backgroundImage})`,
                     backgroundSize: 'cover'
@@ -24,7 +24,7 @@ const MainLayout = () => {
                 <Outlet />
             </div>
             {show && <FollowSection />}
-            <Footer />
+            {location.pathname !== '/sign-in' && location.pathname !== '/sign-up' && <Footer />}
         </div>
     );
 };

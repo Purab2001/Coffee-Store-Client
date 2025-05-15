@@ -12,6 +12,12 @@ import AddCoffee from './components/AddCoffee.jsx';
 import UpdateCoffee from './components/UpdateCoffee.jsx';
 import CoffeeDetails from './components/CoffeeDetails.jsx';
 import LoadingSpinner from './components/LoadingSpinner.jsx';
+import SignIn from './components/SignIn.jsx';
+import SignUp from './components/SignUp.jsx';
+import AuthProvider from './contexts/AuthProvider.jsx';
+import Users from './components/Users.jsx';
+import UserDetails from './components/UserDetails.jsx';
+import ProtectedRoute from './components/ProtectedRoute.jsx';
 
 const router = createBrowserRouter([
   {
@@ -27,11 +33,19 @@ const router = createBrowserRouter([
       },
       {
         path: "add-coffee",
-        Component: AddCoffee,
+        Component: () => (
+          <ProtectedRoute>
+            <AddCoffee />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "coffee/:id",
-        Component: CoffeeDetails,
+        Component: (props) => (
+          <ProtectedRoute>
+            <CoffeeDetails {...props} />
+          </ProtectedRoute>
+        ),
         loader: ({ params }) =>
           fetch(`https://coffee-store-server-3443.onrender.com/coffees/${params.id}`),
         hydrateFallbackElement: <LoadingSpinner />,
@@ -41,14 +55,39 @@ const router = createBrowserRouter([
         loader: ({ params }) =>
           fetch(`https://coffee-store-server-3443.onrender.com/coffees/${params.id}`),
         hydrateFallbackElement: <LoadingSpinner />,
-        Component: UpdateCoffee,
+        Component: (props) => (
+          <ProtectedRoute>
+            <UpdateCoffee {...props} />
+          </ProtectedRoute>
+        ),
       },
+      {
+        path: "sign-in",
+        Component: SignIn,
+      },
+      {
+        path: "sign-up",
+        Component: SignUp,
+      },
+      {
+        path: "users",
+        loader: () =>
+          fetch('http://localhost:3000/users'),
+        hydrateFallbackElement: <LoadingSpinner />,
+        Component: Users,
+      },
+      {
+        path: "user-details",
+        Component: UserDetails,
+      }
     ],
   },
 ]);
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </StrictMode>
 );
