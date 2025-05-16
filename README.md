@@ -1,56 +1,78 @@
 # Espresso Emporium - Coffee Store Web Application
 
-![Espresso Emporium Logo](/logo1.png)
+![Espresso Emporium Logo](public/logo1.png)
 
 ## Project Overview
 
-Espresso Emporium is a full-stack web application for managing a coffee store's online presence. Built with modern React and a beautiful coffee-themed UI, this application allows users to browse, add, update, and delete coffee products.
+Espresso Emporium is a modern, full-stack web application for managing a coffee store's online presence. Users can browse, add, update, and delete coffee products through an intuitive interface with a beautiful coffee-themed design.
 
 ## 🚀 Live Demo
 
-Visit the live site: [coffee-store-purab2001.surge.sh](https://coffee-store-purab2001.surge.sh)
+[coffee-store-purab2001.surge.sh](https://coffee-store-purab2001.surge.sh)
 
-## ✨ Features
+---
 
-- **Coffee Management**
-  - View a comprehensive list of coffees
-  - Add new coffee products with detailed information
-  - Update existing coffee details
-  - View detailed information about each coffee product
-  - Delete coffee entries with confirmation
+## 🏁 Quick Start
 
-- **UI/UX**
-  - Responsive design works on mobile and desktop
-  - Elegant animations powered by Framer Motion
-  - Coffee-themed color palette and styling
-  - Loading states with custom animations
-  - Toast notifications for user actions
-  - Sweet alerts for confirmations
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd Coffee-Store-Client
+   ```
 
-- **Layout**
-  - Beautiful hero section
-  - Instagram-style gallery
-  - Coffee features highlights
-  - Contact form
-  - Animated footer with social links
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Start the development server**
+   ```bash
+   npm run dev
+   ```
+
+4. **Open** [http://localhost:5173](http://localhost:5173) in your browser.
+
+---
 
 ## 🛠️ Technology Stack
 
 - **Frontend**
-  - React 19 with React Router
-  - TailwindCSS with DaisyUI components
-  - Framer Motion for animations
-  - SweetAlert2 for modals
-  - React Toastify for notifications
-  - React Icons for UI icons
+  - React 19, React Router
+  - TailwindCSS, DaisyUI
+  - Framer Motion (animations)
+  - SweetAlert2 (modals)
+  - React Toastify (notifications)
+  - React Icons
 
 - **Backend**
-  - API hosted at `https://coffee-store-server-3443.onrender.com`
-  - RESTful endpoints for CRUD operations
+  - REST API: [`https://coffee-store-server-ten-tau.vercel.app`](https://coffee-store-server-ten-tau.vercel.app)
+  - CRUD endpoints for coffee management
 
 - **Build Tools**
-  - Vite for lightning-fast development
-  - ESLint for code quality
+  - Vite
+  - ESLint
+
+---
+
+## ✨ Features
+
+- **Coffee Management**
+  - View, add, update, and delete coffee products
+  - Detailed product pages
+  - Confirmation dialogs for destructive actions
+
+- **User Experience**
+  - Responsive design (mobile & desktop)
+  - Smooth animations
+  - Toast notifications & sweet alerts
+  - Custom loading spinners
+
+- **Layout**
+  - Hero section, gallery, feature highlights
+  - Contact form
+  - Animated footer with social links
+
+---
 
 ## 📋 Project Structure
 
@@ -58,39 +80,29 @@ Visit the live site: [coffee-store-purab2001.surge.sh](https://coffee-store-pura
 src/
 ├── assets/        # Images and icons
 ├── components/    # UI components 
+├── contexts/      # React context providers
 ├── layouts/       # Layout components
 ├── index.css      # Global styles
-└── main.jsx       # Application entry point
+└── main.jsx       # App entry point
 ```
 
-## 🏗️ Setup and Installation
+---
 
-1. Clone the repository
-   ```bash
-   git clone <repository-url>
-   cd coffee-store-client
-   ```
+## ⚙️ Configuration
 
-2. Install dependencies
-   ```bash
-   npm install
-   ```
+- No environment variables are required for the frontend by default.
+- The API base URL is set to the deployed backend. To use a local backend, update the API endpoints in the codebase.
 
-3. Start the development server
-   ```bash
-   npm run dev
-   ```
+---
 
-4. Build for production
-   ```bash
-   npm run build
-   ```
+## 🧑‍💻 Usage Example
 
-## 👩‍💻 Development Notes
+- **Browse Coffees:** Home page lists all coffees.
+- **Add Coffee:** Click "Add Coffee" and fill out the form.
+- **Edit/Delete:** Use the action buttons on each coffee card.
+- **Authentication:** Sign up or sign in to access protected routes.
 
-- Custom fonts (Rancho and Raleway) are imported from Google Fonts
-- The project uses a carefully crafted coffee-themed color palette
-- API endpoints are configured to work with the deployed backend
+---
 
 ## 🌐 Deployment
 
@@ -103,13 +115,23 @@ cp index.html 200.html
 surge . <your-domain>.surge.sh
 ```
 
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Please fork the repo and submit a pull request. For major changes, open an issue first to discuss what you would like to change.
+
+---
+
 ## 📄 License
 
 This project is open source and available under the MIT License.
 
+---
+
 ## 📬 Contact
 
-For inquiries or feedback, please reach out through the contact form on the website or via GitHub.
+For inquiries or feedback, use the contact form on the website or reach out via [GitHub Issues](https://github.com/Purab2001).
 
 ---
 
