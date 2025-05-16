@@ -11,7 +11,7 @@ const AddCoffee = () => {
         const formData = new FormData(form);
         const newCoffee = Object.fromEntries(formData.entries());
 
-        fetch('https://coffee-store-server-ten-tau.vercel.app/coffees', {
+        fetch('https://coffee-store-server-gtbz.onrender.com/coffees', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

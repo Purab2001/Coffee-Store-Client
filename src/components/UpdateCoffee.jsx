@@ -13,7 +13,7 @@ const UpdateCoffee = () => {
         const formData = new FormData(form);
         const updatedCoffee = Object.fromEntries(formData.entries());
 
-        fetch(`https://coffee-store-server-ten-tau.vercel.app/coffees/${_id}`, {
+        fetch(`https://coffee-store-server-gtbz.onrender.com/coffees/${_id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',

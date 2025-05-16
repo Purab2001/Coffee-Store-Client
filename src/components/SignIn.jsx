@@ -25,7 +25,7 @@ const SignIn = () => {
                     email,
                     lastSignInTime: result.user?.metadata?.lastSignInTime,
                 }
-                fetch('https://coffee-store-server-ten-tau.vercel.app/users', {
+                fetch('https://coffee-store-server-gtbz.onrender.com/users', {
                     method: 'PATCH',
                     headers: {
                         'Content-Type': 'application/json',

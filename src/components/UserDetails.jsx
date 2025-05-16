@@ -43,7 +43,7 @@ const UserDetails = () => {
             });
 
             // 2. Update MongoDB user profile
-            const response = await fetch('https://coffee-store-server-ten-tau.vercel.app/users', {
+            const response = await fetch('https://coffee-store-server-gtbz.onrender.com/users', {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',
