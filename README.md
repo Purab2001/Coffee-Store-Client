@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-Espresso Emporium is a modern, full-stack web application for managing a coffee store's online presence. Users can browse, add, update, and delete coffee products through an intuitive interface with a beautiful coffee-themed design.
+Espresso Emporium is a modern, full-stack web application for managing a coffee store's online presence. Users can browse, add, update, and delete coffee products through an intuitive interface with a beautiful coffee-themed design. The app features authentication, protected routes, and a responsive UI.
 
 ## 🚀 Live Demo
 
@@ -27,8 +27,7 @@ Espresso Emporium is a modern, full-stack web application for managing a coffee 
    ```bash
    npm run dev
    ```
-
-4. **Open** [http://localhost:5173](http://localhost:5173) in your browser.
+   The app runs at [http://localhost:5173](http://localhost:5173) by default.
 
 ---
 
@@ -36,19 +35,33 @@ Espresso Emporium is a modern, full-stack web application for managing a coffee 
 
 - **Frontend**
   - React 19, React Router
-  - TailwindCSS, DaisyUI
+  - TailwindCSS, DaisyUI, Material Tailwind, MUI
   - Framer Motion (animations)
   - SweetAlert2 (modals)
   - React Toastify (notifications)
   - React Icons
+  - Date-fns
 
 - **Backend**
-  - REST API: [`https://coffee-store-server-ten-tau.vercel.app`](https://coffee-store-server-ten-tau.vercel.app)
+  - REST API: [`https://coffee-store-server-gtbz.onrender.com`](https://coffee-store-server-gtbz.onrender.com)
   - CRUD endpoints for coffee management
 
 - **Build Tools**
   - Vite
   - ESLint
+
+---
+
+## 📦 Dependencies
+
+Main dependencies (see [`package.json`](package.json:1) for full list):
+
+- `react`, `react-dom`, `react-router`
+- `tailwindcss`, `daisyui`, `@material-tailwind/react`, `@mui/material`, `@mui/icons-material`, `@emotion/react`, `@emotion/styled`
+- `framer-motion`, `sweetalert2`, `react-toastify`, `react-icons`
+- `firebase`
+- `date-fns`
+- Dev: `vite`, `eslint`, `@vitejs/plugin-react`, `@types/react`, `@types/react-dom`
 
 ---
 
@@ -65,6 +78,10 @@ Espresso Emporium is a modern, full-stack web application for managing a coffee 
   - Toast notifications & sweet alerts
   - Custom loading spinners
 
+- **Authentication**
+  - Sign up, sign in, and protected routes using Firebase Auth
+  - User context and provider for global auth state
+
 - **Layout**
   - Hero section, gallery, feature highlights
   - Contact form
@@ -72,17 +89,41 @@ Espresso Emporium is a modern, full-stack web application for managing a coffee 
 
 ---
 
-## 📋 Project Structure
+## 🗂️ Project Structure
 
 ```
 src/
-├── assets/        # Images and icons
-├── components/    # UI components 
-├── contexts/      # React context providers
-├── layouts/       # Layout components
-├── index.css      # Global styles
-└── main.jsx       # App entry point
+├── assets/              # Images and icons
+├── components/          # Reusable UI components (Button, Navbar, Footer, etc.)
+├── contexts/            # React context providers (AuthContext, AuthProvider)
+├── features/
+│   ├── coffee/          # Coffee CRUD: AddCoffee, UpdateCoffee, CoffeeCard, CoffeeDetails
+│   ├── order/           # OrderForm
+│   └── user/            # SignIn, SignUp, UserDetails, Users
+├── firebase/            # Firebase initialization
+├── layouts/             # Layout components (MainLayout)
+├── index.css            # Global styles
+└── main.jsx             # App entry point
 ```
+
+---
+
+## 🧩 Key Components & Structure
+
+- **`src/components/`**
+  - `Navbar.jsx`, `Footer.jsx`, `Header.jsx`, `LoadingSpinner.jsx`, `FollowSection.jsx`, `Home.jsx`, `ProtectedRoute.jsx`
+- **`src/features/coffee/`**
+  - `AddCoffee.jsx`, `UpdateCoffee.jsx`, `CoffeeCard.jsx`, `CoffeeDetails.jsx`
+- **`src/features/user/`**
+  - `SignIn.jsx`, `SignUp.jsx`, `UserDetails.jsx`, `Users.jsx`
+- **`src/features/order/`**
+  - `OrderForm.jsx`
+- **`src/contexts/`**
+  - `AuthContext.jsx`, `AuthProvider.jsx` (handles authentication state)
+- **`src/firebase/firebase.init.js`**
+  - Firebase configuration and initialization
+- **`src/layouts/MainLayout.jsx`**
+  - Main layout wrapper for the app
 
 ---
 
@@ -90,15 +131,26 @@ src/
 
 - No environment variables are required for the frontend by default.
 - The API base URL is set to the deployed backend. To use a local backend, update the API endpoints in the codebase.
+- Firebase is used for authentication. Update `src/firebase/firebase.init.js` if you want to use your own Firebase project.
 
 ---
 
 ## 🧑‍💻 Usage Example
 
 - **Browse Coffees:** Home page lists all coffees.
-- **Add Coffee:** Click "Add Coffee" and fill out the form.
-- **Edit/Delete:** Use the action buttons on each coffee card.
-- **Authentication:** Sign up or sign in to access protected routes.
+- **Add Coffee:** Click "Add Coffee" and fill out the form (requires authentication).
+- **Edit/Delete:** Use the action buttons on each coffee card (requires authentication).
+- **Authentication:** Sign up or sign in to access protected routes (add, edit, delete).
+- **Order Coffee:** Use the order form to place an order.
+- **User Management:** View and manage users (admin features, if implemented).
+
+---
+
+## 🔐 Authentication & Protected Routes
+
+- Authentication is handled via Firebase.
+- Protected routes are implemented using `ProtectedRoute.jsx` and React Context.
+- Only authenticated users can add, update, or delete coffees.
 
 ---
 
@@ -112,6 +164,15 @@ cd dist
 cp index.html 200.html
 surge . <your-domain>.surge.sh
 ```
+
+---
+
+## 📜 Scripts
+
+- `npm run dev` — Start development server
+- `npm run build` — Build for production
+- `npm run preview` — Preview production build
+- `npm run lint` — Run ESLint
 
 ---
 

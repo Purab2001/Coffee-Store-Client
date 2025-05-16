@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import { BsEye, BsTrash } from 'react-icons/bs';
 import { Link, useLoaderData } from 'react-router';
 import Swal from 'sweetalert2';
-import { AuthContext } from '../contexts/AuthContext';
+import { AuthContext } from '../../contexts/AuthContext';
 
 const Users = () => {
     // Fetch users from the server and set up state
@@ -122,7 +122,7 @@ const Users = () => {
                                 <td>
                                     <div className="flex gap-2">
                                         <Link
-                                            to={`/user-details/${user._id}`}
+                                            to='/user-details'
                                             className='p-2 bg-[#D2B48C] text-white rounded cursor-pointer hover:bg-[#C19A6B] transition-colors duration-300 transform hover:scale-105 inline-flex items-center justify-center'
                                         >
                                             <BsEye className='text-lg' />

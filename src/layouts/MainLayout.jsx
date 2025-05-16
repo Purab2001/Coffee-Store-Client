@@ -5,6 +5,7 @@ import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 import backgroundImage from '../assets/1.png';
 import FollowSection from '../components/FollowSection';
+import { ToastContainer } from 'react-toastify';
 
 const MainLayout = () => {
     const location = useLocation();
@@ -25,6 +26,18 @@ const MainLayout = () => {
             </div>
             {show && <FollowSection />}
             {location.pathname !== '/sign-in' && location.pathname !== '/sign-up' && <Footer />}
+            <ToastContainer
+                position="top-right"
+                autoClose={3000}
+                hideProgressBar={false}
+                newestOnTop
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="light"
+            />
         </div>
     );
 };

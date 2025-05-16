@@ -1,9 +1,9 @@
 import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router';
-import { AuthContext } from '../contexts/AuthContext';
 import { sendPasswordResetEmail } from 'firebase/auth';
-import { auth } from '../firebase/firebase.init';
 import { BsEye, BsEyeSlash } from 'react-icons/bs';
+import { AuthContext } from '../../contexts/AuthContext';
+import { auth } from '../../firebase/firebase.init';
 
 const SignIn = () => {
     const [email, setEmail] = useState('');

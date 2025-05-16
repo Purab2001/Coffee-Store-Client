@@ -5,18 +5,21 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router";
+// Material UI + Tailwind integration
+import { StyledEngineProvider } from '@mui/material/styles';
+import GlobalStyles from '@mui/material/GlobalStyles';
 // Layouts and Components
 import MainLayout from './layouts/MainLayout.jsx';
 import Home from './components/Home.jsx';
-import AddCoffee from './components/AddCoffee.jsx';
-import UpdateCoffee from './components/UpdateCoffee.jsx';
-import CoffeeDetails from './components/CoffeeDetails.jsx';
+import AddCoffee from './features/coffee/AddCoffee.jsx';
+import UpdateCoffee from './features/coffee/UpdateCoffee.jsx';
+import CoffeeDetails from './features/coffee/CoffeeDetails.jsx';
 import LoadingSpinner from './components/LoadingSpinner.jsx';
-import SignIn from './components/SignIn.jsx';
-import SignUp from './components/SignUp.jsx';
+import SignIn from './features/user/SignIn.jsx';
+import SignUp from './features/user/SignUp.jsx';
 import AuthProvider from './contexts/AuthProvider.jsx';
-import Users from './components/Users.jsx';
-import UserDetails from './components/UserDetails.jsx';
+import Users from './features/user/Users.jsx';
+import UserDetails from './features/user/UserDetails.jsx';
 import ProtectedRoute from './components/ProtectedRoute.jsx';
 
 const router = createBrowserRouter([
@@ -86,8 +89,11 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <AuthProvider>
-      <RouterProvider router={router} />
-    </AuthProvider>
+    <StyledEngineProvider enableCssLayer>
+      <GlobalStyles styles="@layer theme, base, mui, components, utilities;" />
+      <AuthProvider>
+        <RouterProvider router={router} />
+      </AuthProvider>
+    </StyledEngineProvider>
   </StrictMode>
 );

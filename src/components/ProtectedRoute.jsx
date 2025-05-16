@@ -1,14 +1,15 @@
 import React, { useContext } from 'react';
 import { Navigate, useLocation } from 'react-router';
 import { AuthContext } from '../contexts/AuthContext';
+import LoadingSpinner from './LoadingSpinner';
+import PropTypes from 'prop-types';
 
-const ProtectedRoute = ({ children }) => {
+const ProtectedRoute = ({ children, fallback }) => {
     const { user, loading } = useContext(AuthContext);
     const location = useLocation();
 
     if (loading) {
-        // Optionally, show a loading spinner
-        return <div>Loading...</div>;
+        return fallback || <LoadingSpinner />;
     }
 
     if (!user) {
@@ -17,6 +18,15 @@ const ProtectedRoute = ({ children }) => {
     }
 
     return children;
+};
+
+ProtectedRoute.propTypes = {
+    children: PropTypes.node.isRequired,
+    fallback: PropTypes.node,
+};
+
+ProtectedRoute.defaultProps = {
+    fallback: null,
 };
 
 export default ProtectedRoute;

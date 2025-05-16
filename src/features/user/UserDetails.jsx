@@ -1,9 +1,9 @@
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router';
 import { FaArrowLeft, FaEdit, FaEnvelope, FaRegClock, FaIdCard, FaSignInAlt, FaSave, FaTimes } from 'react-icons/fa';
-import { AuthContext } from '../contexts/AuthContext';
 import Swal from 'sweetalert2';
 import { updateProfile } from 'firebase/auth';
+import { AuthContext } from '../../contexts/AuthContext';
 
 const UserDetails = () => {
     const { user } = useContext(AuthContext);

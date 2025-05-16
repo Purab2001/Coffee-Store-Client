@@ -2,9 +2,9 @@ import React, { useState, useContext } from 'react';
 import { useLoaderData } from 'react-router';
 import { Link } from 'react-router';
 import { FaCoffee } from 'react-icons/fa';
-import CoffeeCard from './CoffeeCard';
 import Button from './Button';
 import { AuthContext } from '../contexts/AuthContext';
+import CoffeeCard from '../features/coffee/CoffeeCard';
 
 const Home = () => {
     const loadedCoffees = useLoaderData();
