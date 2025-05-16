@@ -1,7 +1,5 @@
 # Espresso Emporium - Coffee Store Web Application
 
-![Espresso Emporium Logo](public/logo1.png)
-
 ## Project Overview
 
 Espresso Emporium is a modern, full-stack web application for managing a coffee store's online presence. Users can browse, add, update, and delete coffee products through an intuitive interface with a beautiful coffee-themed design.
