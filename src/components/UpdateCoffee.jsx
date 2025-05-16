@@ -40,7 +40,12 @@ const UpdateCoffee = () => {
                     });
                 }
             }).catch(error => {
-                console.error('Error updating coffee:', error);
+                console.error('Error updating coffee:', {
+                    error,
+                    coffeeId: _id,
+                    updatedCoffee,
+                    stack: error?.stack
+                });
                 toast.error('Failed to update coffee!', {
                     position: "top-right",
                     autoClose: 3000,

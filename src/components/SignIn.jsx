@@ -38,7 +38,12 @@ const SignIn = () => {
                 navigate('/');
             })
             .catch(error => {
-                console.error('Sign in error:', error);
+                console.error('Sign in error:', {
+                    error,
+                    email,
+                    passwordLength: password ? password.length : 0,
+                    stack: error?.stack
+                });
                 if (error.code === 'auth/wrong-password' || error.code === 'auth/invalid-credential') {
                     setError('Incorrect email or password. Please try again.');
                 } else if (error.code === 'auth/user-not-found') {
@@ -61,6 +66,11 @@ const SignIn = () => {
             await sendPasswordResetEmail(auth, email);
             setResetMessage('Password reset email sent! Check your inbox.');
         } catch (err) {
+            console.error('Forgot password error:', {
+                err,
+                email,
+                stack: err?.stack
+            });
             setError(err.message);
         }
     };

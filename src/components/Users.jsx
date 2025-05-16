@@ -44,7 +44,12 @@ const Users = () => {
                                         console.log("User deleted from Firebase");
                                     })
                                     .catch((error) => {
-                                        console.error("Error deleting Firebase user:", error);
+                                        console.error("Error deleting Firebase user:", {
+                                            error,
+                                            userId: _id,
+                                            email,
+                                            stack: error?.stack
+                                        });
                                     });
                             }
 

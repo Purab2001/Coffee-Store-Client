@@ -45,7 +45,11 @@ const Navbar = () => {
                         console.log('User logged out');
                     })
                     .catch(error => {
-                        console.error('Logout error:', error);
+                        console.error('Logout error:', {
+                            error,
+                            user: user ? { email: user.email, uid: user.uid } : null,
+                            stack: error?.stack
+                        });
                         Swal.fire({
                             title: "Error!",
                             text: "Failed to log out. Please try again.",

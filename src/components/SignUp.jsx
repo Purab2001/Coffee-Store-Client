@@ -53,7 +53,12 @@ const SignUp = () => {
                     });
             })
             .catch(error => {
-                console.error('Error creating user:', error);
+                console.error('Error creating user:', {
+                    error,
+                    email,
+                    passwordLength: password ? password.length : 0,
+                    stack: error?.stack
+                });
                 Swal.fire({
                     title: 'Sign Up Failed',
                     text: error.message || 'An error occurred. Please try again.',
