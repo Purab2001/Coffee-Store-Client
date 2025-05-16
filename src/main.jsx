@@ -27,7 +27,7 @@ const router = createBrowserRouter([
       {
         index: true,
         loader: () =>
-          fetch('https://coffee-store-server-3443.onrender.com/coffees'),
+          fetch('https://coffee-store-server-ten-tau.vercel.app/coffees'),
         hydrateFallbackElement: <LoadingSpinner />,
         Component: Home,
       },
@@ -47,13 +47,13 @@ const router = createBrowserRouter([
           </ProtectedRoute>
         ),
         loader: ({ params }) =>
-          fetch(`https://coffee-store-server-3443.onrender.com/coffees/${params.id}`),
+          fetch(`https://coffee-store-server-ten-tau.vercel.app/coffees/${params.id}`),
         hydrateFallbackElement: <LoadingSpinner />,
       },
       {
         path: "update-coffee/:id",
         loader: ({ params }) =>
-          fetch(`https://coffee-store-server-3443.onrender.com/coffees/${params.id}`),
+          fetch(`https://coffee-store-server-ten-tau.vercel.app/coffees/${params.id}`),
         hydrateFallbackElement: <LoadingSpinner />,
         Component: (props) => (
           <ProtectedRoute>
@@ -72,7 +72,7 @@ const router = createBrowserRouter([
       {
         path: "users",
         loader: () =>
-          fetch('http://localhost:3000/users'),
+          fetch('https://coffee-store-server-ten-tau.vercel.app/users'),
         hydrateFallbackElement: <LoadingSpinner />,
         Component: Users,
       },

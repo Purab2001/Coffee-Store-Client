@@ -21,6 +21,20 @@ const SignIn = () => {
         signIn(email, password)
             .then(result => {
                 console.log('User signed in successfully', result.user);
+                const signInInfo = {
+                    email,
+                    lastSignInTime: result.user?.metadata?.lastSignInTime,
+                }
+                fetch('https://coffee-store-server-ten-tau.vercel.app/users', {
+                    method: 'PATCH',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(signInInfo),
+                }).then(res => res.json())
+                    .then(data => {
+                        console.log('User sign-in time updated successfully', data);
+                    })
                 navigate('/');
             })
             .catch(error => {

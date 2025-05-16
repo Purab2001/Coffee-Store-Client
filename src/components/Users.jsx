@@ -30,7 +30,7 @@ const Users = () => {
         }).then((result) => {
             if (result.isConfirmed) {
                 // First delete from database
-                fetch(`http://localhost:3000/users/${_id}`, {
+                fetch(`https://coffee-store-server-ten-tau.vercel.app/users/${_id}`, {
                     method: 'DELETE',
                 })
                     .then(res => res.json())

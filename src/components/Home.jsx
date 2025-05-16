@@ -31,6 +31,7 @@ const Home = () => {
                 </div>
 
                 <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
+                    {console.log('DEBUG: coffees value/type:', coffees, Array.isArray(coffees))}
                     {coffees.map(coffee => (
                         <CoffeeCard
                             key={coffee._id}

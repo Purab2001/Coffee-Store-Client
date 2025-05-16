@@ -27,7 +27,7 @@ const CoffeeCard = ({ coffee, setCoffees, coffees }) => {
             }
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://coffee-store-server-3443.onrender.com/coffees/${_id}`, {
+                fetch(`https://coffee-store-server-ten-tau.vercel.app/coffees/${_id}`, {
                     method: 'DELETE',
                 })
                     .then(res => res.json())
